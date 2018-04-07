@@ -5,7 +5,7 @@ public class FilaCircular {
     private int posicaoAtual=0;
     private int inicio =0;
     private int fim=0;
-    private Object[] objeto = new Object[10];
+    private Object[] objeto = new Object[5];
     
     public void Enfileirar(Object obj){
         if(inicio == 0 && fim == 0){
@@ -13,17 +13,22 @@ public class FilaCircular {
             fim++;
         }else
         if(!cheia()){
-            objeto[fim]=obj;
             if(fim==objeto.length){
                 fim=0;
-            }else
+                objeto[fim]=obj;
+            }else{
+                objeto[fim]=obj;
                 fim++;
+            }
         }
     }
     
     public void Desenfileirar(){
         if(!this.vazia()){
-            inicio++;
+            if(inicio==objeto.length){
+                inicio=0;
+            }else
+                inicio++;
         }else
             System.out.println("Erro!");
     }
@@ -40,4 +45,9 @@ public class FilaCircular {
         }else
             return false;
     }
+    
+    public Object Frente(){
+        return this.objeto[inicio];
+    }
+    
 }
