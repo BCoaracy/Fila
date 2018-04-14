@@ -6,6 +6,20 @@ public class FilaCircular {
     private int inicio =0;
     private int fim=0;
     private Object[] objeto = new Object[5];
+
+    public int getFim(){
+        return fim;
+    }
+    
+    public FilaCircular(int tamanho){
+        this.inicio=0;
+        this.fim=0;
+        this.objeto = new Object[tamanho];
+    }
+    
+    public FilaCircular(){
+        
+    }
     
     public void Enfileirar(Object obj){
         if(inicio == 0 && fim == 0){
